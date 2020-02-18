@@ -36,6 +36,8 @@
 
   <% @books.each do |book| %>
     <tr>
+     <td><%= @user.name %>
+    <%= image_tag book.user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
      <td><%= book.title %></td>
      <td><%= book.body %></td>
     </tr>
