@@ -1,6 +1,4 @@
-<h1>Book detail</h1>
-<%= @book.title %>
-<%= @book.body %>
+
 
 <h3>New book</h3>
 <% if @book.errors.any? %>
@@ -22,3 +20,7 @@
   <%= f.submit 'Create Book' %>
 
 <% end %>
+
+<h1>Book detail</h1>
+<%= @book.title %>
+<%= @book.body %>
