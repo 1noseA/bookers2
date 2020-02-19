@@ -12,36 +12,40 @@
   <body>
     <header>
     <h1>Bookers</h1>
-     <ul>
       <% if user_signed_in? %>
-        <li class="Home">
+        <div class="Home">
             <%= link_to 'Home', user_path(current_user.id) %>
-        </li>
-        <li class="Users">
+        </div>
+        <div class="Users">
             <%= link_to 'Users', users_path %>
-        </li>
-        <li class="Books">
+        </div>
+        <div class="Books">
             <%= link_to 'Books', books_path %>
-        </li>
-        <li class="logout">
+        </div>
+        <div class="logout">
             <%= link_to 'logout', destroy_user_session_path,method: :delete %>
-        </li>
+        </div>
       <% else %>
-        <li class="Home">
+        <div class="Home">
             <%= link_to 'Home', root_path %>
-        </li>
-        <li class="About">
+        </div>
+        <div class="About">
             <%= link_to 'About', home_about_path %>
-        </li>
-        <li class="Sign up">
+        </div>
+        <div class="Sign up">
             <%= link_to 'Sign up', new_user_registration_path %>
         </li>
-        <li class="login">
+        <div class="login">
             <%= link_to 'login', user_session_path %>
-        </li>
+        </div>
       <% end %>
-     </ul>
     </header>
+
+    <% if flash[:notice] %>
+     <div class ="flash" >
+      <%= flash[:notice] %>
+     </div>
+    <% end %> 
     <%= yield %>
   </body>
 </html>
