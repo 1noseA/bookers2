@@ -1,12 +1,13 @@
-<div class="profile-container">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
     <h3 class="profile-name">User info</h3>
     <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
     <p>name<%= @user.name %></p> 
     <p>introduction<%= @user.introduction %></p>
-<% if @user.id == current_user.id %>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
-<% end %>
-</div>
+    <% if @user.id == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
+    <% end %>
 
 <h3>New book</h3>
 <% if @book.errors.any? %>
@@ -28,11 +29,24 @@
   <%= f.submit 'Create Book' %>
 
 <% end %>
+</div>
 
+<div class="col-lg-8">
 <h1>Book detail</h1>
-  <%= @book.title %>
-  <%= @book.body %>
-<% if @book.user == current_user %>
-<%= link_to "Edit",edit_book_path(@book) %>
-<%= link_to "Destroy",book_path(@book),method: :delete %>
-<% end %>
+<table class="table table-striped">
+  <tbody>
+   <tr>
+     <td>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
+     <td><%= @book.title %></td>
+     <td><%= @book.body %></td>
+     <% if @book.user == current_user %>
+     <td><%= link_to "Edit",edit_book_path(@book) %>
+     <%= link_to "Destroy",book_path(@book),method: :delete %></td>
+     <% end %>
+   </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
