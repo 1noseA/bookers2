@@ -26,6 +26,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+  @user = User.find(current_user.id)
+  @books = Book.all
+  @book = Book.new(book_params)
+  @book.user_id = current_user.id
+  if @book.save
+    flash[:notice] = "Book was successfully created."
+    redirect_to book_path(@book.id)
+  else 
+    render :index
+  end
+end
+
   private 
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
