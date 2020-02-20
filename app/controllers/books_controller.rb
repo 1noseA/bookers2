@@ -12,6 +12,7 @@ def index
 end
 
 def show
+  @user = User.find(current_user.id)
 	@book = Book.find(params[:id])
 end
 
@@ -31,12 +32,19 @@ end
 
 def create
 	@book = Book.new(book_params)
+  @book.user_id = current_user.id
 	if @book.save
     flash[:notice] = "Book was successfully created."
   	redirect_to book_path(@book.id)
   else 
     render :index
   end
+end
+
+def destroy
+  @book = Book.find(params[:id])
+  @book.destroy
+  redirect_to books_path
 end
 
   private
