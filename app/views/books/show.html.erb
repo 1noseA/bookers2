@@ -37,7 +37,9 @@
   <tbody>
    <tr>
      <td>
-      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+      <%= link_to @user.name,user_path(@user) %>
+      </td>
      <td><%= @book.title %></td>
      <td><%= @book.body %></td>
      <% if @book.user == current_user %>
