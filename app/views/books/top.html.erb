@@ -1,7 +1,11 @@
-<h1>Welcome to Bookers!</h1>
-<p>In Bookers,<br>
+<h1>Welcome to <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers!</h1>
+<p>In <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers,<br>
 	you can share and exchange your opinions , inpression ,and emotions<br>
 	about various books!<br>
 
-<%= link_to "Log in",user_session_path %>
-<%= link_to "Sign Up",new_user_registration_path %>
+<%= link_to 'Log in' ,new_user_session_path, class: "btn btn-info btn-block" %>
+  <!-- <button type="button" class="btn btn-info btn-block">Log in</button>
+<#% end %> -->
+<%= link_to 'Sign up' ,new_user_registration_path, class: "btn btn-success btn-block"  %>
+  <!-- <button type="button" class="btn btn-success btn-block">Sign Up</button>
+<#% end %> -->

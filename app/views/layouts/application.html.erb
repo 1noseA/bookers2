@@ -14,31 +14,39 @@
     <h1>Bookers</h1>
     <ul>
       <% if user_signed_in? %>
-        <li class="Home">
-            <%= link_to 'Home',user_path(current_user.id) %>
-        </li>
-        <li class="Users">
-            <%= link_to 'Users', users_path %>
-        </li>
-        <li class="Books">
-            <%= link_to 'Books', books_path %>
-        </li>
-        <li class="logout">
-            <%= link_to 'logout', destroy_user_session_path,method: :delete %>
-        </li>
+        <%= link_to (user_path(current_user.id)) do %>
+          <li class="glyphicon glyphicon-home" aria-hidden="true">Home</li>
+        <% end %>
+
+        <%= link_to (users_path) do %>
+          <li class="glyphicon glyphicon-user" aria-hidden="true">Users</li>
+        <% end %>
+
+        <%= link_to (books_path) do %>
+          <li class="glyphicon glyphicon-book" aria-hidden="true">Books</li>
+        <% end %>
+
+        <%= link_to (destroy_user_session_path),method: :delete do %>
+          <li class="glyphicon glyphicon-log-out" aria-hidden="true">logout</li>
+        <% end %>
+
       <% else %>
-        <li class="Home">
-            <%= link_to 'Home', root_path %>
-        </li>
-        <li class="About">
-            <%= link_to 'About', home_about_path %>
-        </li>
-        <li class="sign up">
-            <%= link_to 'Sign up', new_user_registration_path %>
-        </li>
-        <li class="login">
-            <%= link_to 'login', user_session_path %>
-        </li>
+        <%= link_to (root_path) do %>
+          <li class="glyphicon glyphicon-home" aria-hidden="true">Home</li>
+        <% end %>
+
+        <%= link_to (home_about_path) do %>
+          <li class="glyphicon glyphicon-link" aria-hidden="true">About</li>
+        <% end %>
+
+        <%= link_to (new_user_registration_path) do %>
+          <li class="glyphicon glyphicon-edit" aria-hidden="true">sign up</li>
+        <% end %>
+
+        <%= link_to (new_user_session_path) do %>
+          <li class="glyphicon glyphicon-log-in" aria-hidden="true">login</li>
+        <% end %>
+
       <% end %>
     </ul>
     </header>
