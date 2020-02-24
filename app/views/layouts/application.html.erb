@@ -10,10 +10,10 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">Bookers</div>
-        <ul class="nav navbar-right">
+    <header>
+      <div class="header-title">Bookers</div>
+        <div class = "category">
+          <ul>
           <% if user_signed_in? %>
             <%= link_to (user_path(current_user.id)) do %>
               <li class="glyphicon glyphicon-home" aria-hidden="true">Home</li>
@@ -50,13 +50,13 @@
           <% end %>
         </ul>
       </div>
-      </div>
-    </nav>
+    </header>
     <% if flash[:notice] %>
      <div class ="flash" >
       <%= flash[:notice] %>
      </div>
     <% end %>
     <%= yield %>
+    <footer>CopyRight Infratop.inc</footer>
   </body>
 </html>

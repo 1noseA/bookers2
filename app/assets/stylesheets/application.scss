@@ -16,9 +16,26 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-.navbar-header{
+header{
+	background-color: black;
+}
+
+.header-title{
 	color: white;
 	font-size: 20px;
 }
 
+.category{
+	text-align: right;
+	text-color: white;
+}
+
+.new-title,.new-body{
+	width: 100%;
+}
+
+
+footer{
+	float: right;
+}
 

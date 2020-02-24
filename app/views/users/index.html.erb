@@ -3,7 +3,7 @@
     <div class="col-xs-3">
      <h3>User info</h3>
       <table class="table">
-        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img pull-left profile-img", fallback: "no_image.jpg" %>
         <tr><td>name</td><td><%= @user.name %></td></tr>
         <tr><td>introduction</td><td><%= @user.introduction %></td></tr>
       </table>
@@ -26,10 +26,10 @@
  <%= form_for(@book) do |f| %>
 
   <p>Title</p>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, class: "new-title" %>
 
   <p>Opinion</p>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, class: "new-body" %>
   <br>
   <%= f.submit "Create Book",class:"btn btn-primary btn-block" %>
 
@@ -50,7 +50,7 @@
   <% @users.each do |user| %>
     <tr>
      <td>
-      <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
+      <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img pull-left profile-img", fallback: "no_image.jpg" %></td>
      <td><%= user.name %></td>
      <td><%= link_to "Show",user_path(user) %></td>
     </tr>

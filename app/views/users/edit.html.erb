@@ -8,18 +8,12 @@
   </div>
 <% end %>
 <%= form_for(@user) do |f| %>
-    <div class="form-group has-icon">
-      <label class="control-label sr-only" for="inputEmail">Name</label>
-      <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputEmail" %>
-    </div> 
-    <div class="user-edit-image">
-      <label class="control-label sr-only" for="inputEmail">Image</label>
-      <%= f.attachment_field :profile_image, class: "user-edit-form" %>
-    </div>
-    <div class="user-edit-introduction">
-      <label class="control-label sr-only" for="inputEmail">Introduction</label>
-      <%= f.text_field :introduction, autofocus: true, class:"form-control", id:"inputEmail" %>
-    </div>
+    <p>Name
+      <%= f.text_field :name %></p>
+    <p>Image
+      <%= f.attachment_field :profile_image %></p>
+    <p>Introduction
+      <%= f.text_field :introduction %></p>
     <%= f.submit "Update User" %>
 <% end %>
 
