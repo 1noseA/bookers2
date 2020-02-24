@@ -14,4 +14,11 @@
  *= require_self
  */
  @import "bootstrap-sprockets";
- @import "bootstrap";   
+ @import "bootstrap";
+
+.navbar-header{
+	color: white;
+	font-size: 20px;
+}
+
+

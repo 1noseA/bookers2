@@ -7,14 +7,14 @@
     </ul>
   </div>
 <% end %>
-<%= form_for(@book) do |f| %>
+
+  <%= form_for(@book) do |f| %>
   <p>Title</p>
   <%= f.text_field :title %>
   <p>Opinion</p>
   <%= f.text_area :body %>
   <br>
-  <button type="submit" class="btn btn-primary">Update Book</button>
-  <br>
+  <%= f.submit "Update Book",class:"btn btn-primary btn-block" %>
   <%= link_to "Show",book_path(@book) %>
   <%= link_to "Back",books_path %>
-<% end %>
+  <% end %>
