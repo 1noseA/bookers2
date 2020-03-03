@@ -14,7 +14,6 @@ def index
   @users = User.all
 	@books = Book.all
 	@book = Book.new
-  @favorite = Books.find(params[:id])
 end
 
 def show
