@@ -20,6 +20,7 @@ def show
   # @user = User.find(current_user.id)
   @books = Book.all
 	@book = Book.find(params[:id])
+  @book_comment = BookComment.new
 end
 
 def edit
