@@ -57,15 +57,15 @@
      <td><%= link_to book.title,book_path(book) %></td>
      <td><%= book.body %></td>
      <td>
-      <% if @book.favorited_by?(current_user) %>
+      <% if book.favorited_by?(current_user) %>
             <%= link_to book_favorites_path(book), method: :delete do %>
-              <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
-              <%= @book.favorites.count %>
+            <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+              <%= book.favorites.count %>
             <% end %>
         <% else %>
             <%= link_to book_favorites_path(book), method: :post do %>
-              <i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i>
-              <%= @book.favorites.count %>
+            <i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i>
+              <%= book.favorites.count %>
             <% end %>
        <% end %>
      </td>
