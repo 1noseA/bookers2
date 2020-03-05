@@ -78,6 +78,33 @@
    </tr>
   </tbody>
 </table>
+<ol>
+    <% @book.book_comments.each do |book_comment| %>
+        <li class="comment">
+            <div class="comment-body bb">
+                <div class="comment-avatar">
+                    <div class="avatar">
+                        <%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img pull-left profile-img", fallback: "no_image.jpg" %>
+                    </div>
+                </div>
+                <div class="comment-text">
+                    <div class="comment-author clearfix">
+                        <a href="#" class="link-author"><%= book_comment.user.name %></a>
+                        <span class="comment-meta">
+                          <span class="comment-date"><%= book_comment.created_at.strftime('%Y/%m/%d') %></span>
+                        </span>
+                    </div>
+                    <div class="comment-entry"><%= book_comment.comment %></div>
+                    <% if book_comment.user == current_user %>
+                      <%= link_to book_book_comments_path(book_comment),method: :delete, data: {confirm: 'Are you sure?'} do %>
+                      <button type="button" class="btn btn-danger">Destroy</button>
+                      <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </li>
+    <% end %>
+</ol>
 
 <%= form_for [@book, @book_comment] do |f| %>
     <div class="row">
@@ -87,6 +114,7 @@
     </div>
     <%= f.submit "送信" %>
 <% end %>
+
 </div>
 </div>
 </div>
