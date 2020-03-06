@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-   before_action :correct_user, only: [:edit, :update]
+   before_action :correct_user, only: [:edit, :update, :following, :followers]
 
   def index
     @user = User.find(current_user.id)
@@ -31,17 +31,29 @@ class UsersController < ApplicationController
   end
 
   def create
-  @user = User.find(current_user.id)
-  @books = Book.all
-  @book = Book.new(book_params)
-  @book.user_id = current_user.id
-  if @book.save
-    flash[:notice] = "Book was successfully created."
-    redirect_to book_path(@book.id)
-  else 
-    render :index
+    @user = User.find(current_user.id)
+    @books = Book.all
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+    if @book.save
+      flash[:notice] = "Book was successfully created."
+      redirect_to book_path(@book.id)
+    else 
+      render :index
+    end
   end
-end
+
+  def following
+      @user  = User.find(params[:id])
+      @users = @user.following
+      render 'show_follow'
+  end
+
+  def followers
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follower'
+  end
 
   private 
   def user_params

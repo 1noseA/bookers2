@@ -1,17 +1,8 @@
 <div class="container"> 
   <div class="row">
     <div class="col-xs-3">
-     <h3>User info</h3>
-      <table class="table">
-        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img pull-left profile-img", fallback: "no_image.jpg" %>
-        <tr><td>name</td><td><%= @user.name %></td></tr>
-        <tr><td>introduction</td><td><%= @user.introduction %></td></tr>
-      </table>
-        <% if @user.id == current_user.id %>
-          <%= link_to edit_user_path(@user) do %>
-            <button type="button" class="btn btn-default btn-block"><p class="glyphicon glyphicon-wrench" aria-hidden="true"></p></button>
-          <% end %>
-        <% end %>
+      <h3>User info</h3>
+        <%= render 'users/user_info', user: @user %>
 
 <h3>New book</h3>
 <% if @book.errors.any? %>
