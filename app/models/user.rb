@@ -34,6 +34,10 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def self.search(search)
+    return User.all unless search
+    User.where(['content LIKE ?', "%#{search}%"])
+  end
 
   def email_required?
   	false

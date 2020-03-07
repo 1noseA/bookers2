@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   root 'books#top'
   get "home/about" => "books#about"
 
-  
+  get "/search" => "search#search"
   end
