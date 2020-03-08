@@ -55,10 +55,6 @@ class UsersController < ApplicationController
     render 'show_follower'
   end
 
-  def search
-  @user = User.search(params[:search])
-  end
-
   private 
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)

@@ -56,10 +56,6 @@ def destroy
   redirect_to books_path
 end
 
-def search
-  @book = Book.search(params[:search])
-end
-
   private
 
   def book_params
