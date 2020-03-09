@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-3">
     <h3>User info</h3>
-    <%= render 'users/user_info', user: @user %>
+    <%= render 'users/user_info', user: current_user %>
 
 	<h3>New book</h3>
 	<% if @book.errors.any? %>
@@ -27,18 +27,19 @@
 	<% end %>
     </div>
 
-    <div class="col-xs-9">
-    <h1>Users</h1>
-      <table class="table">
-		<thead>
+	  <% if @model == "user" %>
+	  <div class="col-xs-9">
+	    <h1>Users</h1>
+        <table class="table">
+		  <thead>
 		    <tr>
 			  <th>image</th>
 			  <th>name</th>
 			  <td></td>
 		    </tr>
-		</thead>
-		<tbody>
-		  <% @users.each do |user| %>
+		  </thead>
+		  <tbody>
+		  <% @datas.each do |user| %>
 		    <tr>
 		      <td>
 			    <%= attachment_image_tag(user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img pull-left profile-img", fallback: "no_image.jpg") %>
@@ -47,8 +48,36 @@
 		      <td><%= link_to "Show",user_path(user) %></td>
 		    </tr>
 		  <% end %>
-		</tbody>
-      </table>
-    </div>
+		  </tbody>
+		</table>
+	   </div>
+	  <% end %>
+
+	  <% if @model == "book" %>
+	  <div class="col-xs-9">
+		<h1>Books</h1>
+        <table class="table">
+		   <thead>
+		    <tr>
+			  <th></th>
+			  <th>Title</th>
+			  <th>Opinion</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  <% @datas.each do |book| %>
+		    <tr>
+			  <td>
+			    <%= attachment_image_tag(book.user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img pull-left profile-img", fallback: "no_image.jpg") %>
+			   </td>
+			   <td><%= link_to book.title,book_path(book) %></td>
+			   <td><%= book.body %></td>
+			</tr>
+		  <% end %>
+		  </tbody>
+        </table>
+       </div>
+      <% end %>
+
   </div>
 </div>

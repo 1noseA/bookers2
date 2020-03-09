@@ -34,13 +34,13 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def self.search(search)
-      if search
-        User.where(['name LIKE ?', "%#{search}%"])
-      else
-        User.all
-      end
-    end
+  # def self.search(search)
+  #     if search
+  #       User.where(['name LIKE ?', "%#{search}%"])
+  #     else
+  #       User.all
+  #     end
+  #   end
 
   def email_required?
   	false
