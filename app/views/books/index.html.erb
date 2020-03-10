@@ -29,17 +29,8 @@
 
 <div class="col-xs-9">
 <h1>Books</h1>
-<table class="table">
-  <thead>
-  <tr>
-    <th></th>
-    <th>Title</th>
-    <th>Opinion</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-      <%= render 'favorites/favorites' %>
+
+      <%= render 'books/index',books:@books %>
       
   </tbody>
 </table>
